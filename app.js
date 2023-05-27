@@ -1,21 +1,19 @@
-const http = require('http');
+const express = require('express')
+const app = express()
 
+app.get('/', (req, res) => {
+  res.send('Home Page')
+});
 
+app.get('/hola mundo', (req, res) => {
+  res.send('Hello World en su respectivo route')
+});
 
+app.get('*', (req, res) => {
+  res.send('404 Not found')
+});
 
-
-http.createServer((req,res) => {
-    /*console.log(req); */
-    res.setHeader('Content-Disposition','attachment; filename=lista.csv')
-    res.writeHead(200,{'Content-Type':'application/csv'});
-    res.write('id, nombre\n');
-    res.write('2, Fernando\n');
-    res.write('3, Maria\n');
-    res.write('4, Juan\n');
-    res.write('5, Pedro\n');
-    res.end();
+app.listen(3000)
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}}`)
 })
-.listen(3000);
-
-
-console.log('Escuchando en puero 3000')
