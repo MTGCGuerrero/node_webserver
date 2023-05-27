@@ -5,9 +5,9 @@ const http = require('http');
 
 
 http.createServer((req,res) => {
-
+    console.log(req);
     res.write('Hola mundo');
-    res.end
+    res.end();
 })
 .listen(3000);
 
