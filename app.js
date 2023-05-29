@@ -8,7 +8,10 @@ app.use(express.static('public'));
 
 
 app.get('/', (req, res) => {
-  res.render('home');
+  res.render('home',{
+    nombre: 'Gato bonito',
+    titulo:'Curso de Node'
+  });
 });
 
 app.get('/generic', (req, res) => {
